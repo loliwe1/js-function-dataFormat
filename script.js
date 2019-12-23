@@ -122,9 +122,21 @@ for(let i = 0; i< result.length; i++) {
   box.append(li)
 }
 
+}
 
-console.log(result);
+function convertionTime(time) {
+  if((time < 12) && (time % Math.floor(time) === 0 ) ) {
+    return `${time}:00`;
 
+  } else if ((time > 12) && (time % Math.floor(time) === 0 )) {
+    return `${time - 12}:00`
+
+  }else if((time < 12) && (time % Math.floor(time) !== 0 )) {
+    return `${Math.floor(time)}:${Math.floor(((time - Math.floor(time))/1.65)*100)}`
+
+  }else if((time > 12) && (time % Math.floor(time) !== 0 )) {
+    return `${Math.floor(time) - 12}:${Math.floor(((time - Math.floor(time))/1.65)*100)}`
+  }
 }
 
 dataFormat(source, '#box1 ul');
