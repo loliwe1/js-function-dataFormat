@@ -28,8 +28,62 @@ const source = {
       end: 18
     }
   }
+};
+
+const source2 = {
+  order: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  days: {
+    Monday: {
+      start: 9,
+      end: 18.35
+    },
+    Tuesday: {
+      start: 10,
+      end: 19.2
+    },
+    Wednesday: {
+      start: 9,
+      end: 18.35
+    },
+    Thursday: {
+      start: 10,
+      end: 19.2
+    },
+    Saturday: {
+      start: 10,
+      end: 19.2
+    },
+    Sunday: {
+      start: 10,
+      end: 19.2
+    }
+  }
 }
 
+const source3 = {
+  order: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  days: {
+    Monday: {
+      start: 7.5,
+      end: 18.5
+    },
+    Tuesday: {
+      start: 7.5,
+      end: 18.5
+    },
+    Saturday: {
+      start: 7.5,
+      end: 18.5
+    },
+    Sunday: {
+      start: 9,
+      end: 18
+    }
+  }
+}
+
+function dataFormat(source, selector) {
+let box = document.querySelector(selector);
 let ord = source.order;
 let day = source.days;
 
@@ -62,4 +116,17 @@ for (let i = 0; i < sort.length; i++) {
   
 };
 
+for(let i = 0; i< result.length; i++) {
+  let li = document.createElement('li');
+  li.innerHTML = `${result[i][0]}: ${result[i][1].start} AM - ${result[i][1].end} PM`;
+  box.append(li)
+}
+
+
 console.log(result);
+
+}
+
+dataFormat(source, '#box1 ul');
+dataFormat(source2, '#box2 ul');
+dataFormat(source3, '#box3 ul');
