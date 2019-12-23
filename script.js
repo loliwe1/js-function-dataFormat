@@ -118,7 +118,7 @@ for (let i = 0; i < sort.length; i++) {
 
 for(let i = 0; i< result.length; i++) {
   let li = document.createElement('li');
-  li.innerHTML = `${result[i][0]}: ${result[i][1].start} AM - ${result[i][1].end} PM`;
+  li.innerHTML = `${result[i][0]}: ${convertionTime(result[i][1].start)} AM - ${convertionTime(result[i][1].end)} PM`;
   box.append(li)
 }
 
